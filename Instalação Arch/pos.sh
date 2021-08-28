@@ -136,7 +136,7 @@ fish
 #pacman -Syu
 
 # Otimize o Makepkg (exemplo usando todos os cores disponíveis do seu processador abaixo)
-#sudoedit /etc/makepkg.conf
+#nvim /etc/makepkg.conf
 #CFLAGS="-march=native -mtune=native -O2 -pipe -fstack-protector-strong --param=ssp-buffer-size=4 -fno-plt"
 #CXXFLAGS="${CFLAGS}"
 #RUSTFLAGS="-C opt-level=2 -C target-cpu=native"
