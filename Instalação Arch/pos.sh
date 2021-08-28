@@ -71,10 +71,10 @@ sed -i 's/# --country France,Germany/--country Brazil/' /etc/xdg/reflector/refle
 #systemctl enable zram
 
 
-# Ativar ZSWAP (opcional) e desligar monitor automaticamente quando inativo - consoleblank=60 (desliga após 1 minuto)
+# Ativar ZSWAP (opcional)
 echo 1 > /sys/module/zswap/parameters/enabled
-#Adicione acpi_backlight=vendor se estiver usando notebook LeNovo com NVidia e Intel Graphics
-sed -i 's/GRUB_CMDLINE_LINUX_DEFAULT="loglevel=3 quiet"/GRUB_CMDLINE_LINUX_DEFAULT="loglevel=3 quiet consoleblank=60 zswap.enabled=1 zswap.compressor=lz4 acpi_backlight=vendor/"' /etc/default/grub
+#Adicione acpi_backlight=vendor se estiver usando notebook LeNovo com NVidia e Intel Graphics, caso queira desligar monitor automaticamente quando inativo - consoleblank=60 (desliga após 1 minuto)
+sed -i 's/GRUB_CMDLINE_LINUX_DEFAULT="loglevel=3 quiet"/GRUB_CMDLINE_LINUX_DEFAULT="loglevel=3 quiet zswap.enabled=1 zswap.compressor=lz4 acpi_backlight=vendor/"' /etc/default/grub
 grub-mkconfig -o /boot/grub/grub.cfg
 
 # Reduza a prioridade de uso do swap/zram (opcional)
